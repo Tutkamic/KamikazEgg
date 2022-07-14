@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class EggExplosion : MonoBehaviour
 {
-    public Vector2 bombEggVector;
-    public GameObject bomb;
-    public GameObject boom;
-
-    public float bombPower = 10f;
-    float bombEggAngle;
     Rigidbody2D rb;
 
 
@@ -19,25 +13,9 @@ public class EggExplosion : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void Boom(Vector2 vector, float power, float distanceFactor)
     {
-        if (rb.velocity.magnitude > 2f)
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, rb.velocity);
+        rb.AddForce(vector * power * distanceFactor, ForceMode2D.Impulse);
     }
 
-    public void Boom()
-    {
-        bombEggVector = (this.transform.position - bomb.transform.position).normalized;
-        rb.AddForce(bombEggVector * bombPower, ForceMode2D.Impulse);
-        boom.SetActive(true);
-
-        StartCoroutine(BoomStart());
-    }
-
-    IEnumerator BoomStart()
-    {
-        yield return new WaitForSeconds(0.5f);
-        bomb.SetActive(false);
-    }
 }
