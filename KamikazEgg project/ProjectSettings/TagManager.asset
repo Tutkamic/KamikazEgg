@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 4193351303
+    locked: 0
   - name: Backgroud back
     uniqueID: 3604883067
     locked: 0
@@ -52,6 +55,9 @@ TagManager:
     locked: 0
   - name: Foreground front
     uniqueID: 3669881015
+    locked: 0
+  - name: Front
+    uniqueID: 3581280131
     locked: 0
   - name: UI
     uniqueID: 1345064559

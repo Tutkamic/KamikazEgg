@@ -6,9 +6,12 @@ public class EggExplosion : MonoBehaviour
 {
     public Vector2 bombEggVector;
     public GameObject bomb;
+    public GameObject boom;
+
     public float bombPower = 10f;
     float bombEggAngle;
     Rigidbody2D rb;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,16 @@ public class EggExplosion : MonoBehaviour
 
     public void Boom()
     {
-            bombEggVector = (this.transform.position - bomb.transform.position).normalized;
-            this.GetComponent<Rigidbody2D>().AddForce(bombEggVector * bombPower, ForceMode2D.Impulse);
+        bombEggVector = (this.transform.position - bomb.transform.position).normalized;
+        rb.AddForce(bombEggVector * bombPower, ForceMode2D.Impulse);
+        boom.SetActive(true);
+
+        StartCoroutine(BoomStart());
+    }
+
+    IEnumerator BoomStart()
+    {
+        yield return new WaitForSeconds(0.5f);
+        bomb.SetActive(false);
     }
 }
