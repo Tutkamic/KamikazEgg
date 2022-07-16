@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DynamiteExplosion : MonoBehaviour, IExplosible
+public class ObjectExplosionScript : MonoBehaviour, IExplosible
 {
+    private SceneManagerScript sceneManagerScript;
     private GameObject egg;
     public GameObject boomImage;
+    public GameObject selectImage;
     public GameObject onFire;
-    public GameObject selectArea;
     private EggExplosion eggExplosion;
 
-    public float dynamitePower;
-    public float dynamiteDistanceFactor;
+    public float bombPower;
+    public float bombDistanceFactor;
 
-    public Vector2 dynamiteEggVector;
+    public Vector2 bombEggVector;
 
     private void Update()
     {
@@ -23,34 +24,37 @@ public class DynamiteExplosion : MonoBehaviour, IExplosible
 
     private void Start()
     {
+        sceneManagerScript = FindObjectOfType<SceneManagerScript>();
         onFire.SetActive(false);
         egg = GameObject.FindGameObjectWithTag("Egg");
         eggExplosion = egg.gameObject.GetComponent<EggExplosion>();
-        dynamitePower = 1;
-        dynamiteDistanceFactor = 0;
+        bombPower = 1;
+        bombDistanceFactor = 0;
+    }
+
+    public void Boom()
+    {
+        sceneManagerScript.destroyedObj.Add(gameObject);
+        bombEggVector = (egg.transform.position - transform.position).normalized;
+        boomImage.SetActive(true);
+        boomImage.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+        eggExplosion.Boom(bombEggVector, bombPower, bombDistanceFactor);
+
+        StartCoroutine(BoomCountdown());
     }
 
     void DistanceFactor()
     {
         float distance = Vector3.Distance(egg.transform.position, transform.position);
-        dynamiteDistanceFactor = Mathf.InverseLerp(4.0f, 2f, distance);
-    }
-
-
-    public void Boom()
-    {
-        dynamiteEggVector = (egg.transform.position - this.transform.position).normalized;
-        boomImage.SetActive(true);
-        boomImage.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-
-        eggExplosion.Boom(dynamiteEggVector, dynamitePower, dynamiteDistanceFactor);
-
-        StartCoroutine(BoomCountdown());
+        bombDistanceFactor = Mathf.InverseLerp(4.0f, 2f, distance);
     }
 
     IEnumerator BoomCountdown()
     {
         yield return new WaitForSeconds(0.5f);
+        onFire.SetActive(false);
+        boomImage.SetActive(false);
         gameObject.SetActive(false);
     }
 
@@ -58,8 +62,9 @@ public class DynamiteExplosion : MonoBehaviour, IExplosible
     {
         boomImage.SetActive(false);
         onFire.SetActive(true);
-        selectArea.SetActive(false);
+        selectImage.SetActive(false);
     }
+
     public void UnIgnite()
     {
         StopAllCoroutines();

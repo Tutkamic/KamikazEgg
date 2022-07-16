@@ -5,20 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class ButtonControllerScript : MonoBehaviour
 {
-    public DynamiteExplosion dynamiteExplosion;
-    public BombExplosion bombExplosion;
-    public void BombButton()
-    {
-        bombExplosion.BombExplode();
-    }
+    [SerializeField] SceneManagerScript sceneManagerScript;
+    [SerializeField] GameObject egg;
+    Rigidbody2D rb;
 
-    public void DynamiteButton()
-    {
-        dynamiteExplosion.DynamiteExplode();
-    }
+    Vector3 eggStartPosition;
 
+    private void Start()
+    {
+        eggStartPosition = egg.transform.position;
+        rb = egg.GetComponent<Rigidbody2D>();
+    }
     public void RestartButton()
     {
-        SceneManager.LoadScene(0);
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        egg.transform.position = eggStartPosition;
+        egg.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        sceneManagerScript.IgniteStop();
+    }
+
+    public void IgniteButton()
+    {
+        sceneManagerScript.IgniteStart();
     }
 }

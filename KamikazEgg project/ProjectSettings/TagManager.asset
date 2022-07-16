@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Egg
+  - Explosive
+  - Map
   layers:
   - Default
   - TransparentFX
@@ -12,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - MapElements
   - 
   - 
   - 
@@ -58,6 +61,12 @@ TagManager:
     locked: 0
   - name: Front
     uniqueID: 3581280131
+    locked: 0
+  - name: Front 2
+    uniqueID: 853802069
+    locked: 0
+  - name: VisualEffects
+    uniqueID: 624082587
     locked: 0
   - name: UI
     uniqueID: 1345064559
