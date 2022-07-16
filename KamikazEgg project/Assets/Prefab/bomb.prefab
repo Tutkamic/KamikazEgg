@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: 5771843574528364747}
   - component: {fileID: 5771843574528364750}
   - component: {fileID: 5771843574528364749}
-  - component: {fileID: 641227937262683367}
-  - component: {fileID: 3010293923144234106}
+  - component: {fileID: 6550679815592070102}
+  - component: {fileID: 8420689964802991100}
   m_Layer: 3
   m_Name: bomb
   m_TagString: Explosive
@@ -211,7 +211,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &641227937262683367
+--- !u!114 &6550679815592070102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,16 +220,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5771843574528364746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67bbefb277f3a642867910c9db36bd0, type: 3}
+  m_Script: {fileID: 11500000, guid: 67b4cea6849a78047845059dc1debd8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boomImage: {fileID: 5771843575678784388}
-  selectCircle: {fileID: 2872790131968249499}
+  selectImage: {fileID: 2872790131968249499}
   onFire: {fileID: 5771843576031359234}
   bombPower: 0
   bombDistanceFactor: 0
   bombEggVector: {x: 0, y: 0}
---- !u!114 &3010293923144234106
+--- !u!114 &8420689964802991100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,11 +238,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5771843574528364746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b1e3d78a97884449d32843208c7fab, type: 3}
+  m_Script: {fileID: 11500000, guid: e2b95970db14ab54999a157e5dac74a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombExplosion: {fileID: 641227937262683367}
-  selectCircle: {fileID: 2872790131968249499}
+  objExplosion: {fileID: 6550679815592070102}
+  selectImage: {fileID: 2872790131968249499}
 --- !u!1 &5771843575678784388
 GameObject:
   m_ObjectHideFlags: 0

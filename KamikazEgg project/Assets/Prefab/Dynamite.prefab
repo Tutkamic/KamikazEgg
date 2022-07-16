@@ -416,8 +416,8 @@ GameObject:
   - component: {fileID: 5692574731551092608}
   - component: {fileID: 5692574731551092611}
   - component: {fileID: 5692574731551092610}
-  - component: {fileID: 7281479725531574539}
-  - component: {fileID: 2489776561194881671}
+  - component: {fileID: 4363816236174700430}
+  - component: {fileID: 1467144173001055345}
   m_Layer: 3
   m_Name: Dynamite
   m_TagString: Explosive
@@ -541,7 +541,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7281479725531574539
+--- !u!114 &4363816236174700430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -550,16 +550,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5692574731551092615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd5a689d93787d4bb71efced09747e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 67b4cea6849a78047845059dc1debd8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boomImage: {fileID: 5692574730419980512}
+  selectImage: {fileID: 5684125516206283581}
   onFire: {fileID: 5692574731645071157}
-  selectArea: {fileID: 5684125516206283581}
-  dynamitePower: 0
-  dynamiteDistanceFactor: 0
-  dynamiteEggVector: {x: 0, y: 0}
---- !u!114 &2489776561194881671
+  bombPower: 0
+  bombDistanceFactor: 0
+  bombEggVector: {x: 0, y: 0}
+--- !u!114 &1467144173001055345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -568,11 +568,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5692574731551092615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719c673e504c83c488beee2b6c442ae3, type: 3}
+  m_Script: {fileID: 11500000, guid: e2b95970db14ab54999a157e5dac74a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dynamiteExplosion: {fileID: 7281479725531574539}
-  selectArea: {fileID: 5684125516206283581}
+  objExplosion: {fileID: 4363816236174700430}
+  selectImage: {fileID: 5684125516206283581}
 --- !u!1 &5692574731645071157
 GameObject:
   m_ObjectHideFlags: 0
