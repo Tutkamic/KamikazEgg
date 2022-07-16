@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class CameraMove : MonoBehaviour
 {
     [SerializeField] TouchToDrag touchToDragScript;
+    [SerializeField] SceneManagerScript sceneManagerScript;
 
     Vector2 dragDistance;
     Vector3 camPosition;
@@ -20,6 +21,8 @@ public class CameraMove : MonoBehaviour
     public float mapRightBoundary;
     public float mapLeftBoundary;
 
+    public GameObject egg;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,13 +33,14 @@ public class CameraMove : MonoBehaviour
     void Update()
     {
         CameraDragTouch();
+        CameraFollowEgg();
         MovementBounds();
     }
 
 
     private void CameraDragTouch()
     {
-        if (Input.touchCount < 1)
+        if (Input.touchCount < 1 || sceneManagerScript.isIgnite == true)
             return;
         else if (Input.touchCount > 1)
         {
@@ -81,6 +85,11 @@ public class CameraMove : MonoBehaviour
         }
     }
 
+    void CameraFollowEgg()
+    {
+        if (sceneManagerScript.isIgnite == true)
+            transform.position = new Vector3(egg.transform.position.x, transform.position.y, transform.position.z);
+    }
 
 
 

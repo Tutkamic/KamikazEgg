@@ -173,7 +173,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: a452a2bcb9b7a4648a074aa2eb560b2c, type: 2}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
@@ -1065,8 +1065,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchToDragScript: {fileID: 1936502394}
+  sceneManagerScript: {fileID: 527364918}
   mapRightBoundary: 15
   mapLeftBoundary: 2.5
+  egg: {fileID: 8283232}
 --- !u!1 &525867006
 GameObject:
   m_ObjectHideFlags: 0

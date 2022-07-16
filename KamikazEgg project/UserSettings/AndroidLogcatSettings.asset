@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "I7CQUOFMZ5QG8PTW",
         "name": "com.DefaultCompany.KamikazEggproject",
-        "processId": 20007,
+        "processId": 23937,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -90,6 +90,36 @@
             "deviceId": "I7CQUOFMZ5QG8PTW",
             "name": "com.DefaultCompany.KamikazEggproject",
             "processId": 20007,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 26190,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 26567,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 27144,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 23498,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 23937,
             "exited": false
         }
     ],
