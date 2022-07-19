@@ -70,11 +70,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1819045373
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.6}
+  m_Color: {r: 0.9215687, g: 0.57254905, b: 0.054901965, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 624082587
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5b92c5394a5d6914fa3dd76da4319fe9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -239,8 +239,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -713687165
-  m_SortingLayer: 3
+  m_SortingLayerID: 853802069
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 49f24d0aaa831a24da947ee4f6e20c89, type: 3}
   m_Color: {r: 1, g: 0.96941197, b: 0, a: 1}
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 630268ac000000008b7e0b6db7f0bdda83ff75d56f0e2c509bbe32257b26ded655fce332
+  m_ApplyToSortingLayers: 7b26ded6630268ac000000008b7e0b6db7f0bdda83ff75d555fce33203929393b9dcdbd79bbe32256f0e2c50
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -480,8 +480,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -625086281
-  m_SortingLayer: 2
+  m_SortingLayerID: -673456967
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 491c660e30485b5438356b2edf6c00f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -573,6 +573,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objExplosion: {fileID: 4363816236174700430}
   selectImage: {fileID: 5684125516206283581}
+  sceneManagerScript: {fileID: 0}
+  isSelected: 0
 --- !u!1 &5692574731645071157
 GameObject:
   m_ObjectHideFlags: 0

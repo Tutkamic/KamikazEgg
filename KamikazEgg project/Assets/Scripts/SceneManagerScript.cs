@@ -6,6 +6,7 @@ public class SceneManagerScript : MonoBehaviour
 {
     public GameObject[] explosives;
     public bool isIgnite = false;
+    public bool isObjectSelected = false;
 
     public List<GameObject> destroyedObj = new List<GameObject>();
 
@@ -18,6 +19,7 @@ public class SceneManagerScript : MonoBehaviour
             explosible.Ignite();
         }
         isIgnite = true;
+        isObjectSelected = false;
     }
 
     public void IgniteStop()

@@ -7,12 +7,14 @@ public class ObjectSelectionScript : MonoBehaviour, ISelectable
 {
     [SerializeField] ObjectExplosionScript objExplosion;
     [SerializeField] GameObject selectImage;
+    [SerializeField] SceneManagerScript sceneManagerScript;
     private SliderPowerScript sliderScript;
-    bool isSelected = false;
+    [SerializeField] bool isSelected = false;
 
     private void Start()
     {
         sliderScript = FindObjectOfType<SliderPowerScript>();
+        sceneManagerScript = FindObjectOfType<SceneManagerScript>();
     }
 
     private void Update()
@@ -25,6 +27,7 @@ public class ObjectSelectionScript : MonoBehaviour, ISelectable
         selectImage.SetActive(true);
         sliderScript.SetSliderValue(objExplosion.bombPower);
         isSelected = true;
+        sceneManagerScript.isObjectSelected = true;
     }
     public void UnSelect()
     {
@@ -38,4 +41,5 @@ public class ObjectSelectionScript : MonoBehaviour, ISelectable
             return;
         objExplosion.bombPower = sliderScript.slider.value;
     }
+
 }

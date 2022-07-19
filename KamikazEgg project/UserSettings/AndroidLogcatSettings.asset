@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "I7CQUOFMZ5QG8PTW",
         "name": "com.DefaultCompany.KamikazEggproject",
-        "processId": 23937,
+        "processId": 4292,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -120,6 +120,66 @@
             "deviceId": "I7CQUOFMZ5QG8PTW",
             "name": "com.DefaultCompany.KamikazEggproject",
             "processId": 23937,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 26350,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 26693,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 27732,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 28741,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 9464,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 26060,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 26627,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 19750,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 1810,
+            "exited": false
+        },
+        {
+            "deviceId": "I7CQUOFMZ5QG8PTW",
+            "name": "com.DefaultCompany.KamikazEggproject",
+            "processId": 4292,
             "exited": false
         }
     ],

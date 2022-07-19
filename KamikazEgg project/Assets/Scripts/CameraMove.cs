@@ -15,6 +15,8 @@ public class CameraMove : MonoBehaviour
     Vector3 currentPosition;
     Vector3 targetPosition;
 
+    float targetZoomSize;
+
     bool flag = false;
     bool firstTouchBegun = false;
 
@@ -23,10 +25,13 @@ public class CameraMove : MonoBehaviour
 
     public GameObject egg;
 
+    private Camera cam;
+
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -35,7 +40,9 @@ public class CameraMove : MonoBehaviour
         CameraDragTouch();
         CameraFollowEgg();
         MovementBounds();
+        CameraZoom();
     }
+
 
 
     private void CameraDragTouch()
@@ -91,6 +98,23 @@ public class CameraMove : MonoBehaviour
             transform.position = new Vector3(egg.transform.position.x, transform.position.y, transform.position.z);
     }
 
+    void CameraZoom()
+    {
+        if ((Camera.main.WorldToScreenPoint(egg.transform.position).y > Screen.height - 100) || ((Camera.main.WorldToScreenPoint(egg.transform.position).y < Screen.height - 100) && cam.orthographicSize > 5f))
+        {
+            targetZoomSize = (Camera.main.WorldToScreenPoint(egg.transform.position).y + 100 - Screen.height) * 0.001f;
+        }
+        else
+        {
+            targetZoomSize = 0;
+        }
+        cam.orthographicSize += targetZoomSize * 50 * Time.deltaTime;
+
+        if (cam.orthographicSize < 5)
+        {
+            cam.orthographicSize = 5;
+        }
+    }
 
 
     private void MovementBounds()

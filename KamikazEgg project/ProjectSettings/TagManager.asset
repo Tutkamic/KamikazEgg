@@ -62,6 +62,12 @@ TagManager:
   - name: Front
     uniqueID: 3581280131
     locked: 0
+  - name: SelectAreaFront
+    uniqueID: 2475921923
+    locked: 0
+  - name: BombFront
+    uniqueID: 3621510329
+    locked: 0
   - name: Front 2
     uniqueID: 853802069
     locked: 0
