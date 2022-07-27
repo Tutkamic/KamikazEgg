@@ -7,12 +7,12 @@ public class ObjectSelectionScript : MonoBehaviour, ISelectable
 {
     [SerializeField] ObjectExplosionScript objExplosion;
     [SerializeField] GameObject selectImage;
+    [SerializeField] GameObject circleExplosionSim;
     public bool isSelected { get; private set; }
     float selectedBombPower;
 
     public static event Action<bool> SelectObject;
     public static event Action<float> SelectObjectBombPower;
-
 
 
     private void Start()
@@ -22,6 +22,7 @@ public class ObjectSelectionScript : MonoBehaviour, ISelectable
     public void Select()
     {
         selectImage.SetActive(true);
+        circleExplosionSim.SetActive(true);
         SelectObject?.Invoke(true);
         ReadBombPower();
         isSelected = true;
@@ -29,6 +30,7 @@ public class ObjectSelectionScript : MonoBehaviour, ISelectable
     public void UnSelect()
     {
         selectImage.SetActive(false);
+        circleExplosionSim.SetActive(false);
         SelectObject?.Invoke(false);
         isSelected = false;
     }
@@ -38,4 +40,5 @@ public class ObjectSelectionScript : MonoBehaviour, ISelectable
         selectedBombPower = objExplosion.bombPower;
         SelectObjectBombPower?.Invoke(selectedBombPower);
     }
+
 }

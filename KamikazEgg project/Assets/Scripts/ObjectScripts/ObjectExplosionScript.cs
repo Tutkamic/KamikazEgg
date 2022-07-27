@@ -64,6 +64,7 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
     {
         if (isIgnite)
         {
+            objectSelectionScript.UnSelect();
             boomImage.SetActive(false);
             onFire.SetActive(true);
             selectImage.SetActive(false);
