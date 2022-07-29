@@ -11,11 +11,13 @@ public class EggMovement : MonoBehaviour
 
     private void OnEnable()
     {
-       ButtonControllerScript.Ignite += IgniteState;
+        ButtonControllerScript.Ignite += IgniteState;
+        FinishAreaTrigger.FinishComplete += EggFinish;
     }
     private void OnDisable()
     {
         ButtonControllerScript.Ignite -= IgniteState;
+        FinishAreaTrigger.FinishComplete -= EggFinish;
     }
 
 
@@ -42,5 +44,12 @@ public class EggMovement : MonoBehaviour
             transform.position = eggStartPosition;
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+    }
+
+    private void EggFinish()
+    {
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.isKinematic = true;
     }
 }

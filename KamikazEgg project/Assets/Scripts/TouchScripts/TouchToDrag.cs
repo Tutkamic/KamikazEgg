@@ -11,10 +11,13 @@ public class TouchToDrag : MonoBehaviour
     private float dist;
 
     private bool dragging = false;
+    private bool startDrag = false;
     private bool isIgnite = false;
+    private bool tap = false;
 
     private Vector3 offset;
     private Vector3 startPosition;
+    private float startSelectTime;
 
     private Transform toDrag;
 
@@ -60,12 +63,13 @@ public class TouchToDrag : MonoBehaviour
         {
             HandleTouchBegin();
         }
-        else if (touch.phase == TouchPhase.Moved && dragging)
+        else if (touch.phase == TouchPhase.Moved && startDrag)
         {
             HandleTouchMoved();
         }
-        else if ((touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled) && dragging)
+        else if ((touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled) && startDrag)
         {
+            TapCheck();
             HandleTouchEnded();
         }
 
@@ -82,6 +86,8 @@ public class TouchToDrag : MonoBehaviour
                 selectable = selectableObject;
                 selectable.Select();
 
+                startSelectTime = Time.time;
+
                 startPosition = hit.transform.position;
                 grabbedObject = hit.collider.gameObject;
                 toDrag = hit.transform;
@@ -89,21 +95,29 @@ public class TouchToDrag : MonoBehaviour
                 v3 = new Vector3(pos.x, pos.y, dist);
                 v3 = Camera.main.ScreenToWorldPoint(v3);
                 offset = toDrag.position - v3;
-                dragging = true;
-                var rb = grabbedObject.GetComponent<Rigidbody2D>();
-
-                rb.isKinematic = true;
-                rb.useFullKinematicContacts = true;
-                rb.velocity = Vector2.zero;
-                rb.angularVelocity = 0f;
-                grabbedObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-
-                DragObject?.Invoke(true);
+                tap = false;
+                startDrag = true;
             }
             
         }
+        void TapCheck()
+        {
+            if (dragging) return;
+            tap = true;
+        }
         void HandleTouchMoved()
         {
+            if (tap) return;
+
+            dragging = true;
+            var rb = grabbedObject.GetComponent<Rigidbody2D>();
+            rb.isKinematic = true;
+            rb.useFullKinematicContacts = true;
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            grabbedObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            DragObject?.Invoke(true);
+
             v3 = new Vector3(pos.x, pos.y, dist);
             v3 = Camera.main.ScreenToWorldPoint(v3);
             toDrag.position = v3 + offset;
@@ -111,6 +125,7 @@ public class TouchToDrag : MonoBehaviour
         void HandleTouchEnded()
         {
             dragging = false;
+            startDrag = false;
             DragObject?.Invoke(false);
             grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
 
