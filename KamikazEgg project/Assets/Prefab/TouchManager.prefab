@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6852950098142535533}
   - component: {fileID: 6852950098142535532}
   - component: {fileID: 6852950098142535535}
+  - component: {fileID: 8684979212487105917}
   m_Layer: 0
   m_Name: TouchManager
   m_TagString: Untagged
@@ -45,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30591f277fe3d654cadcc38042121e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneManagerScript: {fileID: 0}
 --- !u!114 &6852950098142535535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,8 +58,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32ba41dbc11d984a967fa1a26c8facc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneManagerScript: {fileID: 0}
-  dragging: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &8684979212487105917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6852950098142535523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7b627562c44ff48ab766955659a85e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

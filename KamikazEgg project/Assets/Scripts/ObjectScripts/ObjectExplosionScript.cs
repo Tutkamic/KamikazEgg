@@ -11,6 +11,7 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
     [SerializeField] GameObject onFire;
     [SerializeField] GameObject EfectArea;
     [SerializeField] ObjectSelectionScript objectSelectionScript;
+    Rigidbody2D rb;
 
     public float bombPower { get; private set; }
 
@@ -32,6 +33,7 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         onFire.SetActive(false);
         bombPower = 1;
     }
@@ -42,9 +44,10 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
             return;
         isExploded = true;
 
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
         boomImage.SetActive(true);
         boomImage.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-
         StartCoroutine(BoomCountdown());
         Explode?.Invoke(this.gameObject);
     }
@@ -57,6 +60,7 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
         onFire.SetActive(false);
         boomImage.SetActive(false);
         gameObject.SetActive(false);
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
         isExploded = false;
     }
 

@@ -15,6 +15,10 @@ public class LevelButton : MonoBehaviour
     [SerializeField] bool isAvailable;
     [SerializeField] int starScore = 0;
 
+    [SerializeField] int bombAmount = 0;
+    [SerializeField] int diamondAmount = 0;
+    [SerializeField] int grenadeAmount = 0;
+
     void Start()
     {
         buttonText.text = level.ToString();
@@ -34,6 +38,9 @@ public class LevelButton : MonoBehaviour
 
     public void PlayLevel()
     {
+        LevelSetupScript.Instance.slotAmount[0] = bombAmount;
+        LevelSetupScript.Instance.slotAmount[1] = diamondAmount;
+        LevelSetupScript.Instance.slotAmount[2] = grenadeAmount;
         SceneManager.LoadScene(2);
     }
 }

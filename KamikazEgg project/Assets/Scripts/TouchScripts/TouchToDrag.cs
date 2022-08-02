@@ -45,7 +45,7 @@ public class TouchToDrag : MonoBehaviour
 
     void DragTouch()
     {
-        if (Input.touchCount < 1 || isIgnite == true)
+        if (Input.touchCount < 1 || isIgnite)
             return;
         else if (Input.touchCount > 1 && dragging)
         {

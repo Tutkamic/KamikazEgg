@@ -23,12 +23,13 @@ public class CameraMove : MonoBehaviour
     bool dragging = false;
     bool earthquake = false;
 
-    public float mapRightBoundary;
-    public float mapLeftBoundary;
+    float mapRightBoundary;
+    float mapLeftBoundary;
     float earthquakeStartTime;
     float earthquakePower;
 
-    public GameObject egg;
+    private EggCollision egg;
+    private FinishAreaTrigger finishArea;
 
     private Camera cam;
 
@@ -49,6 +50,10 @@ public class CameraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        egg = FindObjectOfType<EggCollision>();
+        finishArea = FindObjectOfType<FinishAreaTrigger>();
+        mapLeftBoundary = egg.transform.position.x;
+        mapRightBoundary = finishArea.transform.position.x;
         Application.targetFrameRate = 60;
         cam = Camera.main;
     }

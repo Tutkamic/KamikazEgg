@@ -37,7 +37,6 @@ public class TouchToExplode : MonoBehaviour
                 }
                 else if (hit.collider.TryGetComponent<IExplosible>(out var explosibeObject))
                 {
-                    //IExplosible explosibleObject = explosibeObject;
                     explosibeObject.Boom();
                 }
         }
