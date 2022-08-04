@@ -516,6 +516,7 @@ GameObject:
   - component: {fileID: 5692574731551092610}
   - component: {fileID: 4363816236174700430}
   - component: {fileID: 1467144173001055345}
+  - component: {fileID: 4704504643734393194}
   m_Layer: 3
   m_Name: Dynamite
   m_TagString: Explosive
@@ -531,7 +532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5692574731551092615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.769, y: 0.786, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -689,6 +690,19 @@ MonoBehaviour:
   objExplosion: {fileID: 4363816236174700430}
   selectImage: {fileID: 5684125516206283581}
   circleExplosionSim: {fileID: 3595696668646200926}
+--- !u!114 &4704504643734393194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692574731551092615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1de93edd2e4be142a83edb685c375d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIndex: 1
 --- !u!1 &5692574731645071157
 GameObject:
   m_ObjectHideFlags: 0

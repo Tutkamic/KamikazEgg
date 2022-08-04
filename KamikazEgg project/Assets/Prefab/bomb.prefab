@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 5771843574528364749}
   - component: {fileID: 6550679815592070102}
   - component: {fileID: 8420689964802991100}
+  - component: {fileID: -2156198029451102538}
   m_Layer: 3
   m_Name: bomb
   m_TagString: Explosive
@@ -259,7 +260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5771843574528364746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.2999997, y: -1.259, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -407,6 +408,18 @@ MonoBehaviour:
   objExplosion: {fileID: 6550679815592070102}
   selectImage: {fileID: 2872790131968249499}
   circleExplosionSim: {fileID: 180048812189726940}
+--- !u!114 &-2156198029451102538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771843574528364746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1de93edd2e4be142a83edb685c375d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5771843575678784388
 GameObject:
   m_ObjectHideFlags: 0

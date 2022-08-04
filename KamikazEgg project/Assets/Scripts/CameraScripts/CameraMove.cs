@@ -38,12 +38,14 @@ public class CameraMove : MonoBehaviour
         ButtonControllerScript.Ignite += IgniteState;
         TouchToDrag.DragObject += DragState;
         ObjectExplosionScript.Explode += EarthqauakeStart;
+        DragFromInventory.InventoryItemDrag += DragState;
     }
     private void OnDisable()
     {
         ButtonControllerScript.Ignite -= IgniteState;
         TouchToDrag.DragObject -= DragState;
         ObjectExplosionScript.Explode -= EarthqauakeStart;
+        DragFromInventory.InventoryItemDrag -= DragState;
     }
 
 

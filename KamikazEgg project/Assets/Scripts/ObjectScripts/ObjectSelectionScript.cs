@@ -15,6 +15,7 @@ public class ObjectSelectionScript : MonoBehaviour, ISelectable
     public static event Action<float> SelectObjectBombPower;
 
 
+
     private void Start()
     {
         isSelected = false;

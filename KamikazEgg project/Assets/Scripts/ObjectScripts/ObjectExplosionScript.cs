@@ -13,6 +13,7 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
     [SerializeField] ObjectSelectionScript objectSelectionScript;
     Rigidbody2D rb;
 
+
     public float bombPower { get; private set; }
 
     private bool isExploded = false;
@@ -44,6 +45,7 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
             return;
         isExploded = true;
 
+
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         boomImage.SetActive(true);
@@ -60,7 +62,6 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
         onFire.SetActive(false);
         boomImage.SetActive(false);
         gameObject.SetActive(false);
-        gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
         isExploded = false;
     }
 

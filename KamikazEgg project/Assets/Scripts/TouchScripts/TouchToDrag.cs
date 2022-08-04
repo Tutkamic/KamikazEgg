@@ -37,7 +37,6 @@ public class TouchToDrag : MonoBehaviour
         ButtonControllerScript.Ignite -= IgniteState;
     }
 
-
     void Update()
     {
         DragTouch();

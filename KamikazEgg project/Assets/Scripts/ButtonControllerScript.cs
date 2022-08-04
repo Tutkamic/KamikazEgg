@@ -9,7 +9,6 @@ public class ButtonControllerScript : MonoBehaviour
 {
     public static event Action<bool> Ignite;
     public static event Action<float> SetSliderValue;
-    public static event Action<int> DragItem;
 
     [SerializeField] GameObject igniteButton;
     [SerializeField] GameObject restartButton;
@@ -49,16 +48,4 @@ public class ButtonControllerScript : MonoBehaviour
         Application.Quit();
     }
 
-    public void DragBomb()
-    {
-        DragItem?.Invoke(0);
-    }
-    public void DragDynamite()
-    {
-        DragItem?.Invoke(1);
-    }
-    public void DragGrenade()
-    {
-        DragItem?.Invoke(2);
-    }
 }

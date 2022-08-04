@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 4090133357003588128}
   - component: {fileID: 958364206379612390}
   - component: {fileID: 4638763153135830775}
+  - component: {fileID: -188858215967771285}
   m_Layer: 3
   m_Name: Grenade
   m_TagString: Explosive
@@ -226,6 +227,19 @@ MonoBehaviour:
   objExplosion: {fileID: 958364206379612390}
   selectImage: {fileID: 7601005510509472465}
   circleExplosionSim: {fileID: 7097985784399966969}
+--- !u!114 &-188858215967771285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090133357003588135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1de93edd2e4be142a83edb685c375d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIndex: 2
 --- !u!1 &7097985784399966969
 GameObject:
   m_ObjectHideFlags: 0

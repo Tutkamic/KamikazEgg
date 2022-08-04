@@ -33,6 +33,7 @@ public class DeletedObjectHandler : MonoBehaviour
             foreach (GameObject go in destroyedObj)
             {
                 go.SetActive(true);
+                go.GetComponent<Rigidbody2D>().isKinematic = false;
             }
             destroyedObj.Clear();
         }
