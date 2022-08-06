@@ -11,10 +11,24 @@ public class ButtonControllerScript : MonoBehaviour
     public static event Action<float> SetSliderValue;
     public static event Action Pause;
 
+    bool isFinished = false;
+
     [SerializeField] GameObject igniteButton;
     [SerializeField] GameObject restartButton;
     [SerializeField] Slider slider;
 
+    private void OnEnable()
+    {
+        FinishAreaTrigger.FinishComplete += Finish;
+    }
+    private void OnDisable()
+    {
+        FinishAreaTrigger.FinishComplete -= Finish;
+    }
+    private void Start()
+    {
+        isFinished = false;
+    }
 
     public void IgniteStart()
     {
@@ -44,10 +58,16 @@ public class ButtonControllerScript : MonoBehaviour
         SetSliderValue?.Invoke(slider.value);
     }
 
-    public void ExitButton()
+    public void XButton()
     {
+        if (isFinished) return;
         Time.timeScale = 0;
         Pause?.Invoke();
+    }
+
+    void Finish()
+    {
+        isFinished = true;
     }
 
 }

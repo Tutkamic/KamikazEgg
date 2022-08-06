@@ -34,6 +34,10 @@ public class UIPauseWindow : MonoBehaviour
     }
     public void ReplayButton()
     {
+        int levelIndex = LevelSetupScript.Instance.currentLevelIndex - 1;
+        LevelSetupScript.Instance.slotAmount[0] = LevelSetupScript.Instance.ExplosiveAmount[levelIndex, 0];
+        LevelSetupScript.Instance.slotAmount[1] = LevelSetupScript.Instance.ExplosiveAmount[levelIndex, 1];
+        LevelSetupScript.Instance.slotAmount[2] = LevelSetupScript.Instance.ExplosiveAmount[levelIndex, 2];
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(2);
     }

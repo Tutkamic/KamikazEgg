@@ -8,16 +8,13 @@ public class UIInventoryIcon : MonoBehaviour, IInventoryImageHandler
     [SerializeField] Sprite activeImage;
     [SerializeField] Sprite unactiveImage;
     Image image;
+    [SerializeField] int itemIndex;
 
     void Start()
     {
         image = GetComponent<Image>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        int itemAmount = LevelSetupScript.Instance.slotAmount[itemIndex];
+        if(itemAmount > 0) image.sprite = activeImage;
     }
 
     public void ImageChange(int amount)

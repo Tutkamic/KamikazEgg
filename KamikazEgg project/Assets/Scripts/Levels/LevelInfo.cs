@@ -15,10 +15,7 @@ public class LevelInfo : MonoBehaviour
 
     void Start()
     {
-        levelScore = LevelSetupScript.Instance.levelScore[levelIndex-1];
         isAvailable = LevelSetupScript.Instance.levelAvilable[levelIndex-1];
-        TryGetComponent(out IButtonHandler button);
-        button.ButtonChange(isAvailable, levelScore, levelIndex);
 
         LevelSetupScript.Instance.ExplosiveAmount[levelIndex - 1, 0] = bombAmount;
         LevelSetupScript.Instance.ExplosiveAmount[levelIndex - 1, 1] = dynamiteAmount;

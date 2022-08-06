@@ -88,13 +88,14 @@ public class DragFromInventory : MonoBehaviour
             startDrag = false;
             InventoryItemDrag?.Invoke(false);
             draggedItem.GetComponent<Rigidbody2D>().isKinematic = false;
-            draggedItem.GetComponent<ILastPositionHandler>().LastPositionSave();
+
 
             if (draggedItem.GetComponent<CapsuleCollider2D>().IsTouchingLayers(layerMask))
             {
                 HideInventoryItem?.Invoke(slotIndex, draggedItem);
                 draggedItem.SetActive(false);
             }
+            else draggedItem.GetComponent<ILastPositionHandler>().LastPositionSave();
         }
     }
 

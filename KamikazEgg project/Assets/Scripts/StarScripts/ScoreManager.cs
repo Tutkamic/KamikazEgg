@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ScoreManager : MonoBehaviour
 {
-
+    public static event Action<int> FinishSetup;
     List<GameObject> starCollected = new List<GameObject>();
     int currentScore = 0;
 
@@ -19,6 +20,11 @@ public class ScoreManager : MonoBehaviour
         EggCollision.StarCollect -= OnStarCollect;
         ButtonControllerScript.Ignite -= StarReset;
         FinishAreaTrigger.FinishComplete -= Finish;
+    }
+
+    private void Start()
+    {
+        currentScore = 0;
     }
 
 
@@ -50,6 +56,6 @@ public class ScoreManager : MonoBehaviour
             LevelSetupScript.Instance.totalScore += currentScore - levelScore;
             LevelSetupScript.Instance.levelScore[levelIndex] = currentScore;
         }
-
+        FinishSetup?.Invoke(currentScore);
     }
 }
