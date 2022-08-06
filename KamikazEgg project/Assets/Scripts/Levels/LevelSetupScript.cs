@@ -10,6 +10,7 @@ public class LevelSetupScript : MonoBehaviour
     public int totalScore;
     public int[] levelScore = new int[27]; 
     public bool[] levelAvilable = new bool[27];
+    public int[,] ExplosiveAmount = new int[27,3];
     public int currentLevelIndex;
 
     private void Awake()

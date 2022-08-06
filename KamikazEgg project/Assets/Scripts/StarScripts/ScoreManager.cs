@@ -41,7 +41,7 @@ public class ScoreManager : MonoBehaviour
     {
         int levelIndex = LevelSetupScript.Instance.currentLevelIndex - 1;
         int levelScore = LevelSetupScript.Instance.levelScore[levelIndex];
-        bool nextLevelAvailable = LevelSetupScript.Instance.levelAvilable[levelIndex+1];
+        bool nextLevelAvailable = LevelSetupScript.Instance.levelAvilable[levelIndex + 1];
 
         if (!nextLevelAvailable) LevelSetupScript.Instance.levelAvilable[levelIndex + 1] = true;
 
