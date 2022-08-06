@@ -15,7 +15,6 @@ public class ObjectSelectionScript : MonoBehaviour, ISelectable
     public static event Action<float> SelectObjectBombPower;
 
 
-
     private void Start()
     {
         isSelected = false;
@@ -41,5 +40,6 @@ public class ObjectSelectionScript : MonoBehaviour, ISelectable
         selectedBombPower = objExplosion.bombPower;
         SelectObjectBombPower?.Invoke(selectedBombPower);
     }
+
 
 }

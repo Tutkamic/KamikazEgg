@@ -9,6 +9,8 @@ public class DragFromInventory : MonoBehaviour
 
     [SerializeField] LayerMask layerMask;
 
+    ISelectable selectedObject;
+
     bool isIgnite = false;
     bool dragging = false;
     bool startDrag = false;
@@ -41,7 +43,7 @@ public class DragFromInventory : MonoBehaviour
     void DragFromInv()
     {
         if (Input.touchCount < 1 || isIgnite) return;
-        //else if (Input.touchCount > 1 && dragging) HandleTouchEnded();
+        else if (Input.touchCount > 1 && dragging) EndDragHandler();
 
         Touch touch = Input.GetTouch(0);
         Vector3 pos = touch.position;
@@ -76,6 +78,9 @@ public class DragFromInventory : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
             draggedItem.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+
+            selectedObject.Select();
         }
         void EndDragHandler()
         {
@@ -83,6 +88,7 @@ public class DragFromInventory : MonoBehaviour
             startDrag = false;
             InventoryItemDrag?.Invoke(false);
             draggedItem.GetComponent<Rigidbody2D>().isKinematic = false;
+            draggedItem.GetComponent<ILastPositionHandler>().LastPositionSave();
 
             if (draggedItem.GetComponent<CapsuleCollider2D>().IsTouchingLayers(layerMask))
             {
@@ -93,11 +99,16 @@ public class DragFromInventory : MonoBehaviour
     }
 
     private void IgniteState(bool isOnFire) => isIgnite = isOnFire;
-    private void ItemToDrag(GameObject item) => draggedItem = item;
-    private void InventorySelect(int x, bool isInvSelect)
+    private void ItemToDrag(GameObject item) 
+    {
+        if (selectedObject != null)  selectedObject.UnSelect();
+        draggedItem = item;
+        selectedObject = draggedItem.GetComponent<ISelectable>();
+    }
+    private void InventorySelect(int x)
     {
         slotIndex = x;
-        startDrag = isInvSelect;
+        startDrag = true;
     }
 
 

@@ -47,11 +47,12 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
 
 
         rb.velocity = Vector3.zero;
+        rb.angularVelocity = 0f;
         rb.isKinematic = true;
         boomImage.SetActive(true);
         boomImage.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         StartCoroutine(BoomCountdown());
-        Explode?.Invoke(this.gameObject);
+        Explode?.Invoke(gameObject);
     }
 
 
@@ -90,4 +91,7 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
             return;
         bombPower = power;
     }
+
+    public void ResetPower() => bombPower = 1;
+
 }

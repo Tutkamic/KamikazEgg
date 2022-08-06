@@ -517,6 +517,7 @@ GameObject:
   - component: {fileID: 4363816236174700430}
   - component: {fileID: 1467144173001055345}
   - component: {fileID: 4704504643734393194}
+  - component: {fileID: -4870153542582468263}
   m_Layer: 3
   m_Name: Dynamite
   m_TagString: Explosive
@@ -703,6 +704,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIndex: 1
+--- !u!114 &-4870153542582468263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692574731551092615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81da333157a1ad46907832c6d0be00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5692574731645071157
 GameObject:
   m_ObjectHideFlags: 0

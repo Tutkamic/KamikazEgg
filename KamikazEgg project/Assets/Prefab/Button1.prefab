@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 8522010008030889841}
   - component: {fileID: 8522010008030889843}
   - component: {fileID: 1191132814811940275}
+  - component: {fileID: -7582815035572478652}
   m_Layer: 5
   m_Name: Button1
   m_TagString: Untagged
@@ -367,7 +368,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435c3903425bce34290dce3bd0b6a6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  bombAmount: 0
+  diamondAmount: 0
+  grenadeAmount: 0
+--- !u!114 &-7582815035572478652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522010008030889855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea1fa43928c06b4ba68a4aa6cc523f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   buttonText: {fileID: 8522010008229204834}
   lockImage: {fileID: 8522010008176938480}
   star:
@@ -377,8 +392,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: d227afa2b585ce54984b764cfd069fb4, type: 3}
   - {fileID: 21300000, guid: 0ab8695e9211ac14090084440eef2c6d, type: 3}
-  isAvailable: 0
-  starScore: 0
 --- !u!1 &8522010008136978291
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +505,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 28.725006}
-  m_SizeDelta: {x: -72, y: -83}
+  m_SizeDelta: {x: -77.27137, y: -83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8522010008176938483
 CanvasRenderer:

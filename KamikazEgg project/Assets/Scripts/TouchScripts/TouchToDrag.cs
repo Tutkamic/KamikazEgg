@@ -13,7 +13,6 @@ public class TouchToDrag : MonoBehaviour
     private bool dragging = false;
     private bool startDrag = false;
     private bool isIgnite = false;
-    private bool tap = false;
 
     private Vector3 offset;
     private Vector3 startPosition;
@@ -26,15 +25,17 @@ public class TouchToDrag : MonoBehaviour
     GameObject grabbedObject;
 
     public static event Action<bool> DragObject;
-
+    public static event Action<GameObject> ObjectSelected;
 
     private void OnEnable()
     {
         ButtonControllerScript.Ignite += IgniteState;
+        InstantiateExplosives.DraggedInventoryItem += ItemToDrag;
     }
     private void OnDisable()
     {
         ButtonControllerScript.Ignite -= IgniteState;
+        InstantiateExplosives.DraggedInventoryItem -= ItemToDrag;
     }
 
     void Update()
@@ -68,7 +69,6 @@ public class TouchToDrag : MonoBehaviour
         }
         else if ((touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled) && startDrag)
         {
-            TapCheck();
             HandleTouchEnded();
         }
 
@@ -94,20 +94,14 @@ public class TouchToDrag : MonoBehaviour
                 v3 = new Vector3(pos.x, pos.y, dist);
                 v3 = Camera.main.ScreenToWorldPoint(v3);
                 offset = toDrag.position - v3;
-                tap = false;
                 startDrag = true;
+                if(grabbedObject) ObjectSelected?.Invoke(grabbedObject);
             }
             
         }
-        void TapCheck()
-        {
-            if (dragging) return;
-            tap = true;
-        }
+
         void HandleTouchMoved()
         {
-            if (tap) return;
-
             dragging = true;
             var rb = grabbedObject.GetComponent<Rigidbody2D>();
             rb.isKinematic = true;
@@ -127,6 +121,7 @@ public class TouchToDrag : MonoBehaviour
             startDrag = false;
             DragObject?.Invoke(false);
             grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            grabbedObject.GetComponent<ILastPositionHandler>().LastPositionSave();
 
             if (grabbedObject.GetComponent<CapsuleCollider2D>().IsTouchingLayers(layerMask))
             {
@@ -137,6 +132,10 @@ public class TouchToDrag : MonoBehaviour
 
 
     private void IgniteState(bool isOnFire) => isIgnite = isOnFire;
- 
 
+    private void ItemToDrag(GameObject item)
+    {
+        if (selectable != null)   selectable.UnSelect();
+        selectable = item.GetComponent<ISelectable>();
+    }
 }

@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 958364206379612390}
   - component: {fileID: 4638763153135830775}
   - component: {fileID: -188858215967771285}
+  - component: {fileID: 3453748062979850186}
   m_Layer: 3
   m_Name: Grenade
   m_TagString: Explosive
@@ -80,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 4090133357003588135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8355269997638166849}
@@ -240,6 +241,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIndex: 2
+--- !u!114 &3453748062979850186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090133357003588135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81da333157a1ad46907832c6d0be00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7097985784399966969
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 7097985784399966969}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.375, y: 4.375, z: 4.375}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4090133357003588131}
@@ -363,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 7601005510509472465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 5.8, y: 5.8, z: 5.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4090133357003588131}

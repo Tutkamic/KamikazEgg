@@ -17,6 +17,7 @@ public class CameraMove : MonoBehaviour
 
     float targetZoomSize;
 
+    bool overUI;
     bool flag = false;
     bool firstTouchBegun = false;
     bool isIgnite = false;
@@ -83,31 +84,22 @@ public class CameraMove : MonoBehaviour
             firstTouchBegun = false;
             return;
         } 
-        else if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))   return;
+        else if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)) overUI = true;
+        else overUI = false;
 
         if (Input.GetTouch(0).phase == TouchPhase.Began && dragging == false)
-        {
-            camPosition = transform.position;
-            hitPosition = Input.GetTouch(0).position;
-            firstTouchBegun = true;
-        }
-        else if (Input.GetTouch(0).phase == TouchPhase.Moved && dragging == false && firstTouchBegun == true)
-        {
-            currentPosition = Input.GetTouch(0).position;
-            TouchMove();
-            flag = true;
+            DragStartHandle();
 
-        }
+        else if (Input.GetTouch(0).phase == TouchPhase.Moved && dragging == false && firstTouchBegun == true)
+            DragMoveHandle();
+
         else if (Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)
             flag = false;
 
-        if (flag == true)
+        if (flag == true && !overUI)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, 10.0f * Time.deltaTime);
-            if (transform.position == targetPosition)
-            {
-                flag = false;
-            }
+            if (transform.position == targetPosition)  flag = false;
         }
 
         void TouchMove()
@@ -116,6 +108,20 @@ public class CameraMove : MonoBehaviour
             Vector3 direction = Camera.main.ScreenToWorldPoint(currentPosition) - Camera.main.ScreenToWorldPoint(hitPosition);
             direction *= -1;
             targetPosition = camPosition + direction;
+        }
+
+        void DragStartHandle()
+        {
+            camPosition = transform.position;
+            hitPosition = Input.GetTouch(0).position;
+            firstTouchBegun = true;
+        }
+
+        void DragMoveHandle()
+        {
+            currentPosition = Input.GetTouch(0).position;
+            TouchMove();
+            flag = true;
         }
     }
 

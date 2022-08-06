@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6585291235039113514}
-  - component: {fileID: 6794537797392121550}
   - component: {fileID: 6746336881127686219}
   m_Layer: 0
   m_Name: ScoreManager
@@ -33,18 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6794537797392121550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253457790236588988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6d8f4f160ace7a41b5e94acb2e46917, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6746336881127686219
 MonoBehaviour:
   m_ObjectHideFlags: 0
