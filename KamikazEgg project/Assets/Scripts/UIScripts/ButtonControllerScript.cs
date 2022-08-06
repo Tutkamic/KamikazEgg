@@ -9,6 +9,7 @@ public class ButtonControllerScript : MonoBehaviour
 {
     public static event Action<bool> Ignite;
     public static event Action<float> SetSliderValue;
+    public static event Action Pause;
 
     [SerializeField] GameObject igniteButton;
     [SerializeField] GameObject restartButton;
@@ -45,7 +46,8 @@ public class ButtonControllerScript : MonoBehaviour
 
     public void ExitButton()
     {
-        SceneManager.LoadScene(1);
+        Time.timeScale = 0;
+        Pause?.Invoke();
     }
 
 }
