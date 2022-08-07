@@ -94,6 +94,7 @@ public class DragFromInventory : MonoBehaviour
             {
                 HideInventoryItem?.Invoke(slotIndex, draggedItem);
                 draggedItem.SetActive(false);
+                selectedObject.UnSelect();
             }
             else draggedItem.GetComponent<ILastPositionHandler>().LastPositionSave();
         }

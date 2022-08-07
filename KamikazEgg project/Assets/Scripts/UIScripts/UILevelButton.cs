@@ -10,6 +10,7 @@ public class UILevelButton : MonoBehaviour
     [SerializeField] Image lockImage;
     [SerializeField] Image[] star;
     [SerializeField] Sprite[] sprites;
+    [SerializeField] GameObject stars;
 
     LevelInfo levelInfoScript;
     int levelIndex;
@@ -26,8 +27,10 @@ public class UILevelButton : MonoBehaviour
         {
             buttonText.gameObject.SetActive(true);
             lockImage.gameObject.SetActive(false);
+            stars.SetActive(true);
         } else
         {
+            stars.SetActive(false);
             buttonText.gameObject.SetActive(false);
             lockImage.gameObject.SetActive(true);
         }

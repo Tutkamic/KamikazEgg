@@ -92,6 +92,11 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
         bombPower = power;
     }
 
-    public void ResetPower() => bombPower = 1;
+    public void ResetPower()
+    {
+        onFire.SetActive(false);
+        EfectArea.SetActive(false);
+        bombPower = 1;
+    }
 
 }

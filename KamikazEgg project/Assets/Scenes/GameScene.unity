@@ -14430,6 +14430,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: XButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5022546598843115187, guid: 79dd6d7c8bc5e824793751bf233510bb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022546598843115187, guid: 79dd6d7c8bc5e824793751bf233510bb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022546598843115187, guid: 79dd6d7c8bc5e824793751bf233510bb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5022546598982467888, guid: 79dd6d7c8bc5e824793751bf233510bb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
