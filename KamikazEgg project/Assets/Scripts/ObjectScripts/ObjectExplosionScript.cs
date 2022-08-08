@@ -19,6 +19,7 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
     private bool isExploded = false;
 
     public static event Action<GameObject> Explode;
+    public static event Action ExplodeSound;
 
     private void OnEnable()
     {
@@ -53,6 +54,7 @@ public class ObjectExplosionScript : MonoBehaviour, IExplosible
         boomImage.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         StartCoroutine(BoomCountdown());
         Explode?.Invoke(gameObject);
+        ExplodeSound?.Invoke();
     }
 
 

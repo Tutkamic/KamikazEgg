@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class NextButton : MonoBehaviour
 {
+    public static event Action ClickSound;
     public void NextButtonClick()
     {
+        ClickSound?.Invoke();
         int nextLevelIndex = LevelSetupScript.Instance.currentLevelIndex;
         int bombs = LevelSetupScript.Instance.ExplosiveAmount[nextLevelIndex, 0];
         int dynamites = LevelSetupScript.Instance.ExplosiveAmount[nextLevelIndex, 1];

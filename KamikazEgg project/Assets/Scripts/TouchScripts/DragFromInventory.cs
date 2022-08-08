@@ -14,12 +14,14 @@ public class DragFromInventory : MonoBehaviour
     bool isIgnite = false;
     bool dragging = false;
     bool startDrag = false;
+    bool tap = false;
 
     int slotIndex;
 
     public static event Action<int> ShowInventoryItem;
     public static event Action<int, GameObject> HideInventoryItem;
     public static event Action<bool> InventoryItemDrag;
+    public static event Action PutItemDown;
 
     private void OnEnable()
     {
@@ -43,12 +45,22 @@ public class DragFromInventory : MonoBehaviour
     void DragFromInv()
     {
         if (Input.touchCount < 1 || isIgnite) return;
-        else if (Input.touchCount > 1 && dragging) EndDragHandler();
+        else if (Input.touchCount > 1) 
+        {
+            dragging = false;
+            startDrag = false;
+            tap = false;
+        }
+
 
         Touch touch = Input.GetTouch(0);
         Vector3 pos = touch.position;
 
-        if (touch.phase == TouchPhase.Moved && startDrag)
+        if(touch.phase == TouchPhase.Began)
+        {
+            tap = true;
+        }
+        if (touch.phase == TouchPhase.Moved && startDrag && tap)
         {
             StartDragHandler();
             DragHandler();
@@ -84,6 +96,7 @@ public class DragFromInventory : MonoBehaviour
         }
         void EndDragHandler()
         {
+            tap = false;
             dragging = false;
             startDrag = false;
             InventoryItemDrag?.Invoke(false);
@@ -92,14 +105,23 @@ public class DragFromInventory : MonoBehaviour
 
             if (draggedItem.GetComponent<CapsuleCollider2D>().IsTouchingLayers(layerMask))
             {
-                HideInventoryItem?.Invoke(slotIndex, draggedItem);
-                draggedItem.SetActive(false);
-                selectedObject.UnSelect();
+                DraggedFailed();
             }
-            else draggedItem.GetComponent<ILastPositionHandler>().LastPositionSave();
+            else 
+            {
+                draggedItem.GetComponent<ILastPositionHandler>().LastPositionSave();
+                PutItemDown?.Invoke();
+            }
+
+
         }
     }
-
+    private void DraggedFailed()
+    {
+        HideInventoryItem?.Invoke(slotIndex, draggedItem);
+        draggedItem.SetActive(false);
+        selectedObject.UnSelect();
+    }
     private void IgniteState(bool isOnFire) => isIgnite = isOnFire;
     private void ItemToDrag(GameObject item) 
     {

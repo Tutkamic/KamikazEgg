@@ -10,6 +10,7 @@ public class ButtonControllerScript : MonoBehaviour
     public static event Action<bool> Ignite;
     public static event Action<float> SetSliderValue;
     public static event Action Pause;
+    public static event Action ClickSound;
 
     bool isFinished = false;
 
@@ -32,6 +33,7 @@ public class ButtonControllerScript : MonoBehaviour
 
     public void IgniteStart()
     {
+        ClickSound?.Invoke();
         igniteButton.SetActive(false);
         restartButton.SetActive(true);
         Ignite?.Invoke(true);
@@ -39,6 +41,7 @@ public class ButtonControllerScript : MonoBehaviour
 
     public void IgniteStop()
     {
+        ClickSound?.Invoke();
         igniteButton.SetActive(true);
         restartButton.SetActive(false);
         Ignite?.Invoke(false);
@@ -60,6 +63,7 @@ public class ButtonControllerScript : MonoBehaviour
 
     public void XButton()
     {
+        ClickSound?.Invoke();
         if (isFinished) return;
         Time.timeScale = 0;
         Pause?.Invoke();

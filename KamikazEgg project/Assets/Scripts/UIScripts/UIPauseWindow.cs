@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class UIPauseWindow : MonoBehaviour
 {
-
+    public static event Action ClickSound;
     [SerializeField] GameObject pauseWindow;
 
     private void OnEnable()
@@ -29,11 +30,13 @@ public class UIPauseWindow : MonoBehaviour
     }
     public void ResumeButton()
     {
+        ClickSound?.Invoke();
         pauseWindow.SetActive(false);
         Time.timeScale = 1.0f;
     }
     public void ReplayButton()
     {
+        ClickSound?.Invoke();
         int levelIndex = LevelSetupScript.Instance.currentLevelIndex - 1;
         LevelSetupScript.Instance.slotAmount[0] = LevelSetupScript.Instance.ExplosiveAmount[levelIndex, 0];
         LevelSetupScript.Instance.slotAmount[1] = LevelSetupScript.Instance.ExplosiveAmount[levelIndex, 1];
@@ -43,11 +46,13 @@ public class UIPauseWindow : MonoBehaviour
     }
     public void LevelsButton()
     {
+        ClickSound?.Invoke();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(1);
     }
     public void QuitButton()
     {
+        ClickSound?.Invoke();
         Time.timeScale = 1.0f;
         Application.Quit();
     }
