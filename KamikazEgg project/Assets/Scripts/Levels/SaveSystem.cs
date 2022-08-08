@@ -16,7 +16,7 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static LevelData LoadLeveles()
+    public static LevelData LoadLevels()
     {
         string path = Application.persistentDataPath + "/levels.mt";
         if (File.Exists(path))

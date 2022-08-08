@@ -7,6 +7,7 @@ using System;
 public class MainMenuSceneLoad : MonoBehaviour
 {
     public static event Action ClickSound;
+
     public void StartButton()
     {
         ClickSound?.Invoke();
@@ -21,4 +22,6 @@ public class MainMenuSceneLoad : MonoBehaviour
         LevelSetupScript.Instance.slotAmount[2] = 0;
         SceneManager.LoadScene(3);
     }
+
+
 }

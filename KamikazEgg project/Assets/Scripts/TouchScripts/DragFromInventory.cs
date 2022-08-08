@@ -47,9 +47,14 @@ public class DragFromInventory : MonoBehaviour
         if (Input.touchCount < 1 || isIgnite) return;
         else if (Input.touchCount > 1) 
         {
-            dragging = false;
-            startDrag = false;
-            tap = false;
+            if (dragging) EndDragHandler();
+            else 
+            {
+                dragging = false;
+                startDrag = false;
+                tap = false;
+            }
+
         }
 
 

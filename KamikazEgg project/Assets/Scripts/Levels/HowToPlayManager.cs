@@ -7,7 +7,6 @@ using System;
 public class HowToPlayManager : MonoBehaviour
 {
     public static event Action ClickSound;
-    public static event Action FinishSound;
 
     [SerializeField] GameObject finishWindow;
     [SerializeField] GameObject Etap1;
