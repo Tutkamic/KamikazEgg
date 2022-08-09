@@ -59,6 +59,8 @@ public class CameraMove : MonoBehaviour
         mapRightBoundary = finishArea.transform.position.x;
         Application.targetFrameRate = 60;
         cam = Camera.main;
+
+        StartPosition();
     }
 
     // Update is called once per frame
@@ -182,5 +184,11 @@ public class CameraMove : MonoBehaviour
             if (earthquakePower > 0) earthquakePower -= 1f * Time.deltaTime;
         }
         else earthquake = false;
+    }
+
+    void StartPosition()
+    {
+        Vector3 v3target = new Vector3(egg.transform.position.x, transform.position.y, transform.position.z);
+        transform.position = new Vector3(v3target.x, v3target.y, transform.position.z);
     }
 }
