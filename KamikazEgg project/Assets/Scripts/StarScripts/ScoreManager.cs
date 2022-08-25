@@ -14,12 +14,14 @@ public class ScoreManager : MonoBehaviour
         EggCollision.StarCollect += OnStarCollect;
         ButtonControllerScript.Ignite += StarReset;
         FinishAreaTrigger.FinishComplete += Finish;
+        UIFailedWindow.Retry += StarRetry;
     }
     private void OnDisable()
     {
         EggCollision.StarCollect -= OnStarCollect;
         ButtonControllerScript.Ignite -= StarReset;
         FinishAreaTrigger.FinishComplete -= Finish;
+        UIFailedWindow.Retry -= StarRetry;
     }
 
     private void Start()
@@ -41,6 +43,13 @@ public class ScoreManager : MonoBehaviour
         foreach (var item in starCollected) item.gameObject.SetActive(true);
         starCollected.Clear();
 
+    }
+
+    void StarRetry()
+    {
+        currentScore = 0;
+        foreach (var item in starCollected) item.gameObject.SetActive(true);
+        starCollected.Clear();
     }
 
     void Finish()

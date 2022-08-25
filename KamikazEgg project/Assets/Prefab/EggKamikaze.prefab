@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8410975266109066273}
   - component: {fileID: 8410975266109066278}
   - component: {fileID: 3625960974855626558}
+  - component: {fileID: 2682621556694567256}
   m_Layer: 6
   m_Name: EggKamikaze
   m_TagString: Egg
@@ -162,3 +163,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88615f12840c3834391d73567af7e345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2682621556694567256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8410975266109066272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45580b2859837f04dbda3b90875f1ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256

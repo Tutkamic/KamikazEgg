@@ -13,6 +13,7 @@ public class HowToPlayManager : MonoBehaviour
     [SerializeField] GameObject Etap2;
     [SerializeField] GameObject Etap3;
     [SerializeField] GameObject Etap4;
+    [SerializeField] GameObject Etap1Object;
     bool isEtap1End = false;
     bool isEtap2End = false;
     bool isEtap3End = false;
@@ -37,6 +38,7 @@ public class HowToPlayManager : MonoBehaviour
     {
         finishWindow.SetActive(false);
         Etap1.SetActive(true);
+        Etap1Object.SetActive(true);
         Etap2.SetActive(false);
         Etap3.SetActive(false);
         Etap4.SetActive(false);
@@ -74,6 +76,7 @@ public class HowToPlayManager : MonoBehaviour
     {
         if (isEtap1End) return;
         Etap1.SetActive(false);
+        Etap1Object.SetActive(false);
         Etap2.SetActive(true);
         isEtap1End = true;
     }

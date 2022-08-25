@@ -13,11 +13,13 @@ public class EggMovement : MonoBehaviour
     {
         ButtonControllerScript.Ignite += IgniteState;
         FinishAreaTrigger.FinishComplete += EggFinish;
+        UIFailedWindow.Retry += ResetPosition;
     }
     private void OnDisable()
     {
         ButtonControllerScript.Ignite -= IgniteState;
         FinishAreaTrigger.FinishComplete -= EggFinish;
+        UIFailedWindow.Retry -= ResetPosition;
     }
 
 
@@ -39,10 +41,7 @@ public class EggMovement : MonoBehaviour
             return;
         else
         {
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-            transform.position = eggStartPosition;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            ResetPosition();
         }
     }
 
@@ -51,5 +50,13 @@ public class EggMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.isKinematic = true;
+    }
+
+    private void ResetPosition()
+    {
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        transform.position = eggStartPosition;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

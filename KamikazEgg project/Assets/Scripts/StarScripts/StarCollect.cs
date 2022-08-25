@@ -6,6 +6,7 @@ public class StarCollect : MonoBehaviour, ICollectable
 {
     Vector3 startPosition;
 
+
     private void Start()
     {
         startPosition = transform.position;

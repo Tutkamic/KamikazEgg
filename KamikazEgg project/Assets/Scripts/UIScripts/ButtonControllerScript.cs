@@ -21,10 +21,12 @@ public class ButtonControllerScript : MonoBehaviour
     private void OnEnable()
     {
         FinishAreaTrigger.FinishComplete += Finish;
+        UIFailedWindow.Retry += IgniteRetry;
     }
     private void OnDisable()
     {
         FinishAreaTrigger.FinishComplete -= Finish;
+        UIFailedWindow.Retry -= IgniteRetry;
     }
     private void Start()
     {
@@ -42,6 +44,13 @@ public class ButtonControllerScript : MonoBehaviour
     public void IgniteStop()
     {
         ClickSound?.Invoke();
+        igniteButton.SetActive(true);
+        restartButton.SetActive(false);
+        Ignite?.Invoke(false);
+    }
+
+    void IgniteRetry()
+    {
         igniteButton.SetActive(true);
         restartButton.SetActive(false);
         Ignite?.Invoke(false);

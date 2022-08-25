@@ -23,6 +23,7 @@ public class SoundPlayManager : MonoBehaviour
         UIPauseWindow.ClickSound += Click;
         NextButton.ClickSound += Click;
         HowToPlayManager.ClickSound += Click;
+        UIFailedWindow.ClickSound += Click;
     }
     private void OnDisable()
     {
@@ -36,6 +37,7 @@ public class SoundPlayManager : MonoBehaviour
         UIPauseWindow.ClickSound -= Click;
         NextButton.ClickSound -= Click;
         HowToPlayManager.ClickSound -= Click;
+        UIFailedWindow.ClickSound -= Click;
     }
 
     private void Awake()

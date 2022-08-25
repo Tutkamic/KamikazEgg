@@ -34,6 +34,7 @@ public class UIPauseWindow : MonoBehaviour
         pauseWindow.SetActive(false);
         Time.timeScale = 1.0f;
     }
+
     public void ReplayButton()
     {
         ClickSound?.Invoke();

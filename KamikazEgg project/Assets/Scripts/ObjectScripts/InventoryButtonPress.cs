@@ -15,6 +15,10 @@ public class InventoryButtonPress : MonoBehaviour, IPointerDownHandler
     {
         ButtonControllerScript.Ignite += IsIgnite;
     }
+    private void OnDisable()
+    {
+        ButtonControllerScript.Ignite -= IsIgnite;
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
