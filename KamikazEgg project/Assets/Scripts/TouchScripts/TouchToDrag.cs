@@ -117,16 +117,13 @@ public class TouchToDrag : MonoBehaviour
         }
         void HandleTouchEnded()
         {
+            if (dragging) grabbedObject.GetComponent<ILastPositionHandler>().LastPositionSave();
             dragging = false;
             startDrag = false;
             DragObject?.Invoke(false);
             grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
 
-            if (grabbedObject.GetComponent<CapsuleCollider2D>().IsTouchingLayers(layerMask))
-            {
-                grabbedObject.transform.position = startPosition;
-            }
-            else grabbedObject.GetComponent<ILastPositionHandler>().LastPositionSave();
+            if (grabbedObject.GetComponent<CapsuleCollider2D>().IsTouchingLayers(layerMask))  grabbedObject.transform.position = startPosition;
         }
     }
 

@@ -6,8 +6,8 @@ using UnityEngine;
 public class LevelData
 {
     public int totalScore;
-    public int[] levelScore = new int[27];
-    public bool[] levelAvilable = new bool[27];
+    public int[] levelScore = new int[24];
+    public bool[] levelAvilable = new bool[24];
     public LevelData()
     {
         totalScore = LevelSetupScript.Instance.totalScore;

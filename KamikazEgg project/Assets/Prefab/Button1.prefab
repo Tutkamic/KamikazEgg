@@ -102,8 +102,8 @@ RectTransform:
   m_GameObject: {fileID: 8522010007087051493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.3, y: 1.5, z: 1.4}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8522010007599025145}
   - {fileID: 8522010008136978290}
@@ -369,9 +369,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 0
-  bombAmount: 0
-  dynamiteAmount: 0
-  grenadeAmount: 0
 --- !u!114 &-7582815035572478652
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,9 +5,9 @@ using System;
 
 public class LevelButtonController : MonoBehaviour, ILevelExplosiveAmountHandler
 {
-    [SerializeField] int[] bombAmount = new int[27];
-    [SerializeField] int[] dynamiteAmount = new int[27];
-    [SerializeField] int[] grenadeAmount = new int[27];
+    [SerializeField] int[] bombAmount = new int[24];
+    [SerializeField] int[] dynamiteAmount = new int[24];
+    [SerializeField] int[] grenadeAmount = new int[24];
 
 
     public int SetBombs(int index)

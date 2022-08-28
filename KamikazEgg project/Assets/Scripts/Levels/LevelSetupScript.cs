@@ -9,9 +9,9 @@ public class LevelSetupScript : MonoBehaviour
 
     public int[] slotAmount = new int[3];
     public int totalScore;
-    public int[] levelScore = new int[27]; 
-    public bool[] levelAvilable = new bool[27];
-    public int[,] ExplosiveAmount = new int[27,3];
+    public int[] levelScore = new int[24]; 
+    public bool[] levelAvilable = new bool[24];
+    public int[,] ExplosiveAmount = new int[24,3];
     public int currentLevelIndex;
 
     private void Awake()

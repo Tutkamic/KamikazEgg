@@ -6,13 +6,19 @@ using UnityEngine;
 public class TouchToExplode : MonoBehaviour
 {
     private bool isIgnite = false;
+    bool isFailed = false;
+
     private void OnEnable()
     {
         ButtonControllerScript.Ignite += IgniteSTate;
+        EggFailed.Failed += Failed;
+        EggFailed.FailedOff += FailedReset;
     }
     private void OnDisable()
     {
         ButtonControllerScript.Ignite -= IgniteSTate;
+        EggFailed.Failed -= Failed;
+        EggFailed.FailedOff -= FailedReset;
     }
 
     private void Update()
@@ -22,7 +28,7 @@ public class TouchToExplode : MonoBehaviour
 
     private void TouchCheck()
     {
-        if (Input.touchCount != 1 || isIgnite == false)
+        if (Input.touchCount != 1 || isIgnite == false || isFailed)
             return;
 
         if (Input.GetTouch(0).phase == TouchPhase.Began)
@@ -42,4 +48,6 @@ public class TouchToExplode : MonoBehaviour
         }
     }
     private void IgniteSTate(bool isOnFire) => isIgnite = isOnFire;
+    void Failed() => isFailed = true;
+    void FailedReset() => isFailed = false;
 }

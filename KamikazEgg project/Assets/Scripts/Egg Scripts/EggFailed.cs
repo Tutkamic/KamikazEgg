@@ -6,6 +6,7 @@ using System;
 public class EggFailed : MonoBehaviour
 {
     public static event Action Failed;
+    public static event Action FailedOff;
 
     string tagName = "Enemy";
 
@@ -48,5 +49,6 @@ public class EggFailed : MonoBehaviour
     void ResetPosition()
     {
         failed = false;
+        FailedOff?.Invoke();
     }
 }

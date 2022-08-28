@@ -13,6 +13,7 @@ public class ButtonControllerScript : MonoBehaviour
     public static event Action ClickSound;
 
     bool isFinished = false;
+    bool isFailed = false;
 
     [SerializeField] GameObject igniteButton;
     [SerializeField] GameObject restartButton;
@@ -22,11 +23,14 @@ public class ButtonControllerScript : MonoBehaviour
     {
         FinishAreaTrigger.FinishComplete += Finish;
         UIFailedWindow.Retry += IgniteRetry;
+        EggFailed.Failed += Failed;
+        EggFailed.FailedOff += FailedReset;
     }
     private void OnDisable()
     {
         FinishAreaTrigger.FinishComplete -= Finish;
         UIFailedWindow.Retry -= IgniteRetry;
+        EggFailed.FailedOff -= FailedReset;
     }
     private void Start()
     {
@@ -64,8 +68,8 @@ public class ButtonControllerScript : MonoBehaviour
     }
     public void SliderDOWN()
     {
-        if(slider.value > 1)
-        slider.value--;
+        if (slider.value > 1)
+            slider.value--;
 
         SetSliderValue?.Invoke(slider.value);
     }
@@ -73,14 +77,15 @@ public class ButtonControllerScript : MonoBehaviour
     public void XButton()
     {
         ClickSound?.Invoke();
-        if (isFinished) return;
+        if (isFinished || isFailed) return;
         Time.timeScale = 0;
         Pause?.Invoke();
     }
 
-    void Finish()
-    {
-        isFinished = true;
-    }
+    void Finish() => isFinished = true;
+
+    void Failed() => isFailed = true;
+
+    void FailedReset() => isFailed = false;
 
 }

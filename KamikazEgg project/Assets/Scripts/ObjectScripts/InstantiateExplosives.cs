@@ -36,7 +36,6 @@ public class InstantiateExplosives : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             amountSlot[i] = LevelSetupScript.Instance.slotAmount[i];
-            if (amountSlot[i] == 0) return;
             for (int j = 0; j < amountSlot[i]; j++)
             {
                 var explosive = Instantiate(explosivesInstance[i], spawnPosition);

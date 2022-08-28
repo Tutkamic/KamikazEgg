@@ -13,7 +13,7 @@ public class GameLoad : MonoBehaviour
         LevelData data = SaveSystem.LoadLevels();
 
         LevelSetupScript.Instance.totalScore = data.totalScore;
-        for (int i = 0; i < 27; i++)
+        for (int i = 0; i < 24; i++)
         {
             LevelSetupScript.Instance.levelScore[i] = data.levelScore[i];
             LevelSetupScript.Instance.levelAvilable[i] = data.levelAvilable[i];
