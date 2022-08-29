@@ -66,5 +66,6 @@ public class ScoreManager : MonoBehaviour
             LevelSetupScript.Instance.levelScore[levelIndex] = currentScore;
         }
         FinishSetup?.Invoke(currentScore);
+        SaveSystem.SaveLevels();
     }
 }
